@@ -1,0 +1,18 @@
+meta {
+  name: updateProject
+  type: http
+  seq: 10
+}
+
+put {
+  url: http://localhost:8080/api/v1/projects/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "first project",
+    "tasks": []
+  }
+}
