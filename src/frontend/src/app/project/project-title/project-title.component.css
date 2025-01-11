@@ -1,0 +1,13 @@
+.project-title-container {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    h2 {
+        font-weight: 100;
+        font-size: 18px;
+        line-height: 1;
+    }
+}

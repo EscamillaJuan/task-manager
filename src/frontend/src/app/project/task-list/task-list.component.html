@@ -1,0 +1,46 @@
+<div class="task-list-container">
+    <div class="heading">
+        <h3>Tasks</h3>
+        <div>
+            <span class="status-dot in-progress"></span> In progress
+            <span class="status-dot completed"></span> Completed
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tasks</th>
+                    <th>Status</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(task of tasks; track task.id) {
+                <tr>
+                    <td>
+                        <label
+                            class="{{ task.completed ? 'completed-task' : '' }}"
+                        >
+                            <input
+                                type="checkbox"
+                                aria-label="Select task"
+                                [checked]="task.completed"
+                                (click)="handleCheckbox(task.id)"
+                            />
+                            {{ task.name }}
+                        </label>
+                    </td>
+                    <td>
+                        <span
+                            class="status-dot {{
+                                task.completed ? 'completed' : 'in-progress'
+                            }}"
+                        ></span>
+                        {{ task.completed ? "Completed" : "In progress" }}
+                    </td>
+                    <td>{{ task.dueDate | date : "YYYY-MM-dd" }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
