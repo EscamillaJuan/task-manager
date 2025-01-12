@@ -12,7 +12,7 @@ import javax.swing.text.html.parser.Entity;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(originPatterns = "http://localhost:*", allowedHeaders = "*")
+@CrossOrigin(originPatterns = "http://localhost:**", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/v1/projects")
 public class ProjectController {
