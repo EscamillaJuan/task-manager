@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                @for(task of tasks; track task.id) {
+                @for(task of tasks$ | async; track task.id) {
                 <tr>
                     <td>
                         <label
@@ -38,9 +38,26 @@
                         {{ task.completed ? "Completed" : "In progress" }}
                     </td>
                     <td>{{ task.dueDate | date : "YYYY-MM-dd" }}</td>
+                    <td style="cursor: pointer" (click)="deleteTask(task.id)">
+                        x
+                    </td>
+                    <td style="cursor: pointer" (click)="updateTask(task)">
+                        edit
+                    </td>
                 </tr>
                 }
             </tbody>
         </table>
+
+        <div class="button-container">
+            <button (click)="showModal = true">Add new task</button>
+            @if (showModal) {
+            <app-task-form
+                (closePanel)="handleModalClose($event)"
+                [currentTask]="selectedTask"
+                [formType]="formType"
+            />
+            }
+        </div>
     </div>
 </div>
